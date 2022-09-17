@@ -1,0 +1,327 @@
+body {
+  background-color: #1d2834;
+  overflow: hidden;
+}
+
+h1,
+h3,
+h4,
+th,
+tr,
+label {
+  color: #f2d492;
+}
+
+#usernameSubmit,
+#joinSubmit,
+#makeSubmit,
+#reset,
+#stop {
+  background-color: #f2d492;
+  color: #283845;
+  border: 1px solid transparent;
+  transition: 200ms;
+}
+
+#usernameSubmit:hover,
+#joinSubmit:hover,
+#makeSubmit:hover,
+#reset:hover,
+#stop:hover {
+  background-color: #283845;
+  color: #f2d492;
+  border: 1px solid #f2d492;
+  margin: 0px;
+}
+
+#usernameSubmit:active,
+#joinSubmit:active,
+#makeSubmit:active,
+#reset:active,
+#stop:active {
+  background-color: #202c39;
+}
+
+#setUsername {
+  background-color: #283845;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#usernameTitle {
+  text-align: center;
+  margin: 10px;
+}
+
+#usernameSubmitWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#username {
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 1px;
+  padding: 3px;
+  padding-left: 8px;
+  border: 1px solid transparent;
+}
+
+#usernameSubmit {
+  border-radius: 0px 10px 10px 0px;
+  margin-left: 1px;
+  padding: 3px;
+  width: 70%;
+  cursor: pointer;
+}
+
+#joinMakeListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+#joinWrapper {
+  background-color: #283845;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 10px;
+  margin: 5px;
+  flex: 1 1 0;
+  text-align: center;
+  min-width: 320px;
+}
+#jRoom {
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 1px;
+  border: none;
+  padding: 3px;
+  padding-left: 8px;
+  margin-right: -1px;
+  border: 1px solid transparent;
+  width: 70%;
+}
+
+#joinSubmit {
+  border-radius: 0px 10px 10px 0px;
+  margin-left: 1px;
+  padding: 3px;
+  margin-left: -1px;
+  cursor: pointer;
+}
+
+#makeWrapper {
+  background-color: #283845;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 10px;
+  margin: 5px;
+  flex: 1 1 0;
+  min-width: 200px;
+  text-align: center;
+  min-width: 300px;
+}
+
+#makeSubmit {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#publicWrapper {
+  background-color: #283845;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 10px;
+  margin: 5px;
+  flex: 1 1 0;
+  text-align: center;
+  min-width: 300px;
+}
+
+#match {
+  min-height: 50px;
+  border: 1px solid #f2d492;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+}
+.matchTr,
+.matchTh {
+  border: 1px solid #f2d492;
+}
+
+#chatGameWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#gameWrapper {
+  width: 310px;
+  height: 420px;
+  margin: 50px 50px 0px 50px;
+}
+
+#chatBoxContainer {
+  width: 250px;
+  height: 500px;
+  background-color: #283845;
+  margin: 25px 50px 50px 50px;
+  border-radius: 15px;
+}
+
+#chatBoxTitle {
+  text-align: center;
+  margin: 10px 0px;
+}
+
+#chatBox {
+  background-color: #202c39;
+  box-sizing: border-box;
+  height: calc(100% - 76px);
+  min-width: 200px;
+  width: calc(100% - 10px);
+  margin: 5px 0px 0px 5px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-self: flex-end;
+  color: #ffffff;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.otherBubble {
+  min-width: 20px;
+  max-width: 175px;
+  word-wrap: normal;
+  padding: 14px 18px;
+  margin: 6px 8px;
+  background-color: #6c8ea4;
+  border-radius: 16px 16px 16px 0;
+  border: 1px solid #54788e;
+  align-self: flex-start;
+  color: #f2d492;
+  word-wrap: break-word;
+}
+
+.ownBubble {
+  min-width: 20px;
+  max-width: 175px;
+  padding: 14px 18px;
+  margin: 6px 8px;
+  background-color: #5b5377;
+  border-radius: 16px 16px 0 16px;
+  border: 1px solid #443f56;
+  align-self: flex-end;
+  color: #f2d492;
+  word-wrap: break-word;
+}
+
+#chatMessage {
+  box-sizing: border-box;
+  width: 90%;
+  background-color: #283845;
+  border: none;
+  padding: 8px;
+  border-radius: 0px 0px 0px 15px;
+  margin-left: 2px;
+  margin-right: -2px;
+  color: #f2d492;
+  background: linear-gradient(#f2d492, #f2d492) center bottom 6px /
+    calc(100% - 13px) 1px no-repeat;
+}
+
+#chatSubmit {
+  border-radius: 0px 0px 15px 0px;
+  width: 10%;
+  height: 35px;
+  float: right;
+  border: none;
+  background-color: #283845;
+  color: #f2d492;
+}
+
+#title {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+#gameTitle {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #283845;
+}
+
+.gameButtons {
+  width: 80px;
+  height: 80px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 60px;
+  color: #f2d492;
+  background-color: #283845;
+}
+
+.joinRoomButton {
+  background-color: #f2d492;
+  color: #283845;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.joinRoomButton:hover {
+  background-color: #283845;
+  color: #f2d492;
+  border: 1px solid #f2d492;
+  margin: 0px;
+}
+
+#restartStopWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 18px;
+}
+
+#reset,
+#stop {
+  border-radius: 5px;
+  height: 40px;
+  width: 80px;
+}
+
+button {
+  min-width: 22px;
+  border: none;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.fadeStart {
+  opacity: 0;
+  transform: translate3d(0, 50px, 0);
+  transition: 0.5s all ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Socket.IO Chat Example</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+  </head>
+  <body>
+    <form id="setUsername">
+      <h1 id="usernameTitle">Username</h1>
+      <div id="usernameSubmitWrapper">
+        <input id="username" type="text" value="" autocomplete="off" />
+        <input id="usernameSubmit" type="submit" value="Submit" />
+      </div>
+    </form>
+    <div id="joinMakeListWrapper" class="fadeStart">
+      <div id="joinWrapper">
+        <h1>Join with ID</h1>
+        <form id="joinRoom">
+          <input id="jRoom" type="text" autocomplete="off" />
+          <input id="joinSubmit" type="submit" value="Submit" />
+        </form>
+      </div>
+      <div id="makeWrapper">
+        <h1>Make a match</h1>
+        <form id="makeRoom">
+          <label>Private?</label>
+          <input id="mPrivate" type="checkbox" />
+          <input id="makeSubmit" type="submit" value="Submit" />
+        </form>
+      </div>
+      <div id="publicWrapper">
+        <h1>Join Public Match</h1>
+        <table id="match">
+          <tr class="matchTr">
+            <th class="matchTh">Username's Room</th>
+            <th class="matchTh">Room ID</th>
+            <th class="matchTh">Join Button</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="chatGameWrapper" class="fadeStart">
+      <div id="gameWrapper">
+        <div id="game">
+          <h3 id="title">&nbsp;</h3>
+          <table id="gameTitle">
+            <tr>
+              <th class="gameButtonBox">
+                <button class="gameButtons" id="00">&nbsp;</button>
+              </th>
+              <th
+                class="gameButtonBox"
+                style="border-left: 1px solid; border-right: 1px solid"
+              >
+                <button class="gameButtons" id="01">&nbsp;</button>
+              </th>
+              <th class="gameButtonBox">
+                <button class="gameButtons" id="02">&nbsp;</button>
+              </th>
+            </tr>
+            <tr>
+              <th
+                class="gameButtonBox"
+                style="border-top: 1px solid; border-bottom: 1px solid"
+              >
+                <button class="gameButtons" id="10">&nbsp;</button>
+              </th>
+              <th class="gameButtonBox" style="border: 1px solid">
+                <button class="gameButtons" id="11">&nbsp;</button>
+              </th>
+              <th
+                class="gameButtonBox"
+                style="border-top: 1px solid; border-bottom: 1px solid"
+              >
+                <button class="gameButtons" id="12">&nbsp;</button>
+              </th>
+            </tr>
+            <tr>
+              <th class="gameButtonBox">
+                <button class="gameButtons" id="20">&nbsp;</button>
+              </th>
+              <th
+                class="gameButtonBox"
+                style="border-left: 1px solid; border-right: 1px solid"
+              >
+                <button class="gameButtons" id="21">&nbsp;</button>
+              </th>
+              <th class="gameButtonBox">
+                <button class="gameButtons" id="22">&nbsp;</button>
+              </th>
+            </tr>
+          </table>
+          <div id="restartStopWrapper">
+            <button id="reset">RESET</button>
+            <button id="stop">STOP ROOM</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="chatBoxContainer">
+        <h4 id="chatBoxTitle">Chat</h4>
+        <div id="chatBox"></div>
+        <form id="chatForm">
+          <input id="chatMessage" type="text" autocomplete="off" />
+          <input id="chatSubmit" type="submit" value=">" />
+        </form>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>
