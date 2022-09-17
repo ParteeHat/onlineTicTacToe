@@ -34,7 +34,6 @@ io.on("connection", (socket) => {
 
   socket.on("update username", (data) => {
     socket.username = data;
-    console.log("Username: " + socket.username);
     io.emit("update entire room list", JSON.stringify(matcheso));
   });
   socket.on("make room", (data, pri) => {
@@ -44,7 +43,6 @@ io.on("connection", (socket) => {
     }
     for (let room of matcheso) {
       if (room.roomID == data) {
-        console.log("ROOM ALREADY EXISTS");
         failed = true;
         break;
       }
@@ -73,8 +71,6 @@ io.on("connection", (socket) => {
         "update title",
         `Your room ID is ${socket.roomID}`
       );
-      // console.log(socket.username + ' has made the room "' + socket.roomID + '"')
-      // console.log("List of all matches: " + JSON.stringify(matcheso))
     }
   });
   socket.on("join room", (data) => {
@@ -94,30 +90,21 @@ io.on("connection", (socket) => {
         matcheso[roomNum].user2 == socket.username
       ) {
         failed = true;
-        console.log("ALREADY CONNECTED TO MATCH");
       }
     }
     if (!failed) {
       socket.join(data);
       socket.roomID = data;
       matcheso[connectedRoomID].user2 = socket.username;
-      // console.log(Object.keys(io.sockets.adapter.rooms))
-      // console.log(Object.keys(io.sockets.adapter.sids[socket.id]))
       io.to(String(socket.roomID)).emit(
         "update current room",
         JSON.stringify(matcheso[connectedRoomID])
       );
       io.emit("update entire room list", JSON.stringify(matcheso));
-      console.log("List of all matches: " + JSON.stringify(matcheso));
-      console.log(
-        socket.username + ' has joined the room "' + socket.roomID + '"'
-      );
       io.to(String(socket.roomID)).emit(
         "update title",
         `It is ${matcheso[getIndexOfRoom(socket.roomID)].user1}'s turn (X)`
       );
-    } else {
-      console.log("IT FAILED FOR VARIOUS REASONS");
     }
   });
 
@@ -146,7 +133,6 @@ io.on("connection", (socket) => {
 
   socket.on("chat message", (data, user) => {
     if (socket.roomID != undefined) {
-      console.log(String(socket.roomID));
       io.to(String(socket.roomID)).emit("new message", data, user);
     }
   });
@@ -278,23 +264,12 @@ io.on("connection", (socket) => {
           } else if (win("O") == "tie") {
             io.to(String(socket.roomID)).emit("update title", "Tie");
           }
-        } else {
-          console.log("ITS NOT YOUR TURN");
         }
         io.to(String(socket.roomID)).emit(
           "update current room",
           JSON.stringify(matcheso[getIndexOfRoom(socket.roomID)])
         );
-      } else {
-        console.log("PERSON LEFT");
       }
     }
   });
 });
-
-// TODO
-// ADD STOP ROOM FOR BOTH OWNER AND GEUST OF ROOM
-// Prevent the creation of multiple rooms (might be a glitch if website doesn tload fast enough)
-// Add check for username at the start
-// Fix the deletion of join table when joining a full or invalid session
-// https://coolors.co/202c39-283845-b8b08d-f2d492-f29559
